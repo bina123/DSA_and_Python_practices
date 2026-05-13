@@ -173,3 +173,204 @@ Is array sorted or can be sorted?
 - [ ] Handle remaining elements after loop
 - [ ] Return correct value (length, array slice, indices)
 - [ ] Test edge cases
+
+# Hashmap problems
+1. contains_duplicates
+2. Two Sum
+3. Valid anagram
+
+# HashMap (Dictionary) Pattern - Quick Reference
+
+## When to Use HashMap
+
+### Key Indicators:
+✅ Need **O(1) lookup** by key  
+✅ **Count/frequency** of elements  
+✅ Find **pairs/complements** (Two Sum)  
+✅ **Group/categorize** items  
+✅ Track **seen/visited** elements  
+✅ Find **duplicates** or **unique** elements  
+✅ **Anagram** problems  
+✅ **Substring/subarray** with conditions  
+✅ Can replace nested loops (O(n²) → O(n))  
+
+### Keywords to Watch:
+- "count", "frequency", "occurrences"
+- "find pair that sums to X"
+- "duplicate", "unique", "first unique"
+- "anagram", "group by"
+- "subarray with sum"
+- "contains", "exists", "seen"
+
+## Core Patterns
+
+### Pattern 1: Frequency Counter
+**Use when:** Count occurrences, find most/least frequent
+
+```python
+# Basic frequency count
+def count_freq(arr):
+    freq = {}
+    for num in arr:
+        freq[num] = freq.get(num, 0) + 1
+    return freq
+
+# Using Counter (easier)
+from collections import Counter
+freq = Counter(arr)
+most_common = freq.most_common(1)[0]
+```
+
+**Problems:** Valid Anagram, First Unique Character, Majority Element
+
+### Pattern 2: Two Sum / Complement
+**Use when:** Find pairs with target sum/difference
+
+```python
+def two_sum(nums, target):
+    seen = {}  # value -> index
+    
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in seen:
+            return [seen[complement], i]
+        seen[num] = i
+    
+    return []
+```
+
+**Problems:** Two Sum, 3Sum, Subarray Sum Equals K
+
+### Pattern 3: Grouping
+**Use when:** Group items by common property
+
+```python
+from collections import defaultdict
+
+def group_anagrams(words):
+    groups = defaultdict(list)
+    
+    for word in words:
+        key = ''.join(sorted(word))
+        groups[key].append(word)
+    
+    return list(groups.values())
+```
+
+**Problems:** Group Anagrams, Group Shifted Strings
+
+### Pattern 4: Sliding Window + HashMap
+**Use when:** Substring/subarray with character constraints
+
+```python
+def longest_k_distinct(s, k):
+    char_count = {}
+    left = 0
+    max_len = 0
+    
+    for right in range(len(s)):
+        # Add right character
+        char_count[s[right]] = char_count.get(s[right], 0) + 1
+        
+        # Shrink if too many distinct
+        while len(char_count) > k:
+            char_count[s[left]] -= 1
+            if char_count[s[left]] == 0:
+                del char_count[s[left]]
+            left += 1
+        
+        max_len = max(max_len, right - left + 1)
+    
+    return max_len
+```
+
+**Problems:** Longest Substring Without Repeating, Minimum Window Substring
+
+### Pattern 5: Seen/Visited Tracker
+**Use when:** Track processed elements
+
+```python
+def contains_duplicate(nums):
+    seen = set()
+    for num in nums:
+        if num in seen:
+            return True
+        seen.add(num)
+    return False
+
+# With distance constraint
+def contains_nearby_duplicate(nums, k):
+    seen = {}  # value -> last_index
+    for i, num in enumerate(nums):
+        if num in seen and i - seen[num] <= k:
+            return True
+        seen[num] = i
+    return False
+```
+
+**Problems:** Contains Duplicate, Linked List Cycle, Happy Number
+
+## Essential Dict Methods
+
+```python
+# Get with default
+value = d.get(key, default_value)
+
+# Set default if missing
+d.setdefault(key, default_value)
+
+# Increment counter
+d[key] = d.get(key, 0) + 1
+
+# Check existence
+if key in d:
+
+# Iterate
+for key, value in d.items():
+
+# Delete safely
+value = d.pop(key, None)
+```
+
+## Common Mistakes
+
+```python
+# ❌ Wrong: KeyError if missing
+count = d[key] + 1
+
+# ✅ Right: Handle missing key
+count = d.get(key, 0) + 1
+
+# ❌ Wrong: Modify during iteration
+for key in d:
+    del d[key]
+
+# ✅ Right: Use list of keys
+for key in list(d.keys()):
+    del d[key]
+
+# ❌ Wrong: Unhashable key
+d[[1, 2]] = value  # Lists can't be keys
+
+# ✅ Right: Use tuple
+d[(1, 2)] = value
+```
+
+## Decision Tree
+
+Need to count something?
+└─ YES → Frequency Counter
+Find pairs with condition?
+└─ YES → Two Sum/Complement
+Group items?
+└─ YES → Grouping Pattern
+Substring with constraints?
+└─ YES → Sliding Window + HashMap
+Just tracking seen?
+└─ YES → Seen Tracker (use Set)
+
+
+## Time Complexity
+- **Insert/Lookup/Delete:** O(1) average
+- **Iteration:** O(n)
+- **Space:** O(n)

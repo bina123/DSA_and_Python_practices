@@ -6,11 +6,12 @@
 - [HashMap](./README_HashMap.md) - Day 2
 - [Sliding Window](./README_Sliding_Window.md) - Day 3
 - [Binary Search](./README_Binary_Search.md) - Day 4
+- [Sorting](./README_Sorting.md) - Day 5
 
 ## Progress
 - ✅ Arrays & Two Pointers
 - ✅ Hash Tables
 - ✅ Sliding Window
 - ✅ Binary Search
-- ⏳ Sorting (upcoming)
+- ✅ Sorting (upcoming)
 - ⏳ Trees (upcoming)

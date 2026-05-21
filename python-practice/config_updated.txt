@@ -1,0 +1,8 @@
+# Configuration file 
+# generated automatically 
+
+database_host=localhost
+database_port=5432
+debug_mode=false
+max_connections=100
+new_setting=value

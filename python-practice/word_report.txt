@@ -1,0 +1,28 @@
+Words frequncy count
+==================================================
+
+Total unique words: 32
+Total words: 35
+
+Top 20 most common words:
+--------------------------------------------------
+all                      2
+we                       2
+the                      2
+Lets                     1
+be                       1
+unique                   1
+together                 1
+until                    1
+realise                  1
+are                      1
+same.                    1
+The                      1
+toddler’s                1
+endless                  1
+tantrum                  1
+caused                   1
+entire                   1
+plane                    1
+anxiety.                 1
+I'm                      1

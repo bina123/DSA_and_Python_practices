@@ -8,6 +8,7 @@
 - [Binary Search](./README_Binary_Search.md) - Day 4
 - [Sorting](./README_Sorting.md) - Day 5
 - [String & Stack](./README_String_Stack.md) - Day 6
+- [Binary Tree](./README_Binary_Trees) - Day 8
 
 ## Progress
 - ✅ Arrays & Two Pointers
@@ -16,4 +17,4 @@
 - ✅ Binary Search
 - ✅ Sorting
 - ✅ String
-- ⏳ Trees (upcoming)
+- ✅ Trees

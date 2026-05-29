@@ -9,8 +9,10 @@
 - [Sorting](./README_Sorting.md) - Day 5
 - [String & Stack](./README_String_Stack.md) - Day 6
 - [Binary Tree](./README_Binary_Trees.md) - Day 8
+- [DFS & BFS](./README_DFS_BFS.md) - Day 9
 
 ## Progress
+
 - ✅ Arrays & Two Pointers
 - ✅ Hash Tables
 - ✅ Sliding Window
@@ -18,3 +20,4 @@
 - ✅ Sorting
 - ✅ String
 - ✅ Trees
+- ✅ DFS & BFS ← NEW!

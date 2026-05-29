@@ -1,0 +1,10 @@
+{
+  "Total Passengers": 889,
+  "Survived": 340,
+  "Died": 549,
+  "Survival Rate": "38.25%",
+  "Female Survival": "74.04%",
+  "Male Survival": "18.89%",
+  "Average Age": 29.315151856017994,
+  "Average Fare": 32.09668087739032
+}
